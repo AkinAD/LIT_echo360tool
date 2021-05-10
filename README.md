@@ -31,15 +31,20 @@ Final use case
 
 ## Assumed Folder structure
 
-```
+```markdown
 WhereEverOnYourDevice
 ├── echo360Tool/
 │ ├── commandLineTool/
-│ │ ├── echo360Cleaner.py
+│ │ ├── **echo360Cleaner.py**
 │ │ └──toHTML/
-│ ├── bootstrap.min.css
-│ ├── bootstrap-theme.css
-│ └── bootstrap-theme.min.css
+│ ├── webApp
+| | ├── **app.py**
+| | ├── reports/
+| | ├── static/
+| | ├── templates/
+│ │ └──toHTML/
+│ ├── requirements.txt
+│ └── ...other things
 ```
 
 ## Dependencies
@@ -100,6 +105,15 @@ chmod +x echo360Tool/commandLineTool/echo360Cleaner.py
 The CLI tool allows for both filtering and bulk deactivation of user accounts by echo Id's. The experience is relatively guided and can be altered if need be in the `/commandLineTool/echo360Cleaner.py` directory.
 
 On complettion, an report is generated as an html file and is displayed in browser.
+
+The `doStatusChange` method is the main chunk of the application. By default, Accounts are set to inactive and the target column is "Echo360 User ID" but this can be altered from in the code.
+
+```python
+def doStatusChange(csvin, targetColumn="Echo360 User ID",status="Inactive"):
+    """Calls the Echo 360 Api and changes user status
+        Writes actiosn completed to HTML file as well as temp json file
+        ... """
+```
 
 # Web App
 
