@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<meta charset=“UTF-8”>
+<html>
+  <head>
+    <title>FLASK CSV File Upload</title>
+  </head>
+  <body>
+    <h1>LE Echo Tool</h1>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet"  href="{{ url_for('static', filename='stylesheets/styles.css') }}">
+
+<div class="container">
+  <div class="frame">
+    <div class="nav">
+      <ul class"links">
+        <li class="signin-active"><a class="btn">CSV Deactivator</a></li>
+      </ul>
+    </div>
+    <div ng-app ng-init="checked = false">
+    <form
+    class="form-signin"
+      method="POST"
+      action="/receive_form"
+      enctype="multipart/form-data"
+      id="echoData"
+      name="form"
+    >
+      <p><input type="file" name="file" required /></p>
+
+      <div class="form-group">
+        <label>Target Column header with Echo ID's (try 'Echo360 User ID')</label>
+        <input
+        required
+          style="width: 15rem"
+          class="form-styling"
+          type="text"
+          class="form-control"
+          id="targetColumn"
+          name="targetColumn"
+          placeholder="Typically 'Echo360 User ID' in the csv"
+        />
+      </div>
+      <div>
+        <label for="status">Set Status to:</label>
+        <select id="status" class="form-styling" name="status" form="echoData" required>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Your Admin Echo360 ClientID</label>
+        <input
+        required
+          style="width: 15rem"
+          class="form-styling"
+          type="text"
+          class="form-control"
+          id="clientId"
+          name="clientId"
+          placeholder="Enter le clientId"
+        />
+      </div>
+      <div class="form-group">
+        <label>Your Admin Echo360 clientSecret</label>
+        <input
+        required
+          style="width: 15rem"
+          class="form-styling"
+          type="text"
+          class="form-control"
+          id="clientSecret"
+          name="clientSecret"
+          placeholder="Enter le clientSecret"
+        />
+      </div>
+      <div class="btn-animate"><a class="btn-signin"><input type="submit" value="Submit" style="background-color: rgba(16, 89, 255, 1); border: none; width: 90%"/></a></div>
+      <h6>Made with &#x2764; by Kinny </h6>
+
+    </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,10 @@
+sendgrid 
+click 
+PyInquirer 
+pyfiglet 
+pyconfigstore3 
+colorama 
+termcolor 
+six
+requests_oauthlib
+flask
